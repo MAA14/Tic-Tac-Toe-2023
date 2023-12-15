@@ -34,7 +34,7 @@ const BubbleText = forwardRef((props, ref) => {
         </span>
         <span className="titleVoice bubbleAcs">
           <div className="voiceIcon" onClick={voiceController}>
-            <img src="public/Cit-Cat-Eot/VoiceIcon.png" alt="" />
+            <img src="./Cit-Cat-Eot/VoiceIcon.png" alt="" />
           </div>
           <p className="voiceActor">{voice.actor}</p>
         </span>
