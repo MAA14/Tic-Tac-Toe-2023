@@ -255,7 +255,7 @@ function Game() {
             }`}
           >
             <img
-              src="./public/Cit-Cat-Eot/Accesoris/PurpleLock.webp"
+              src="../public/Cit-Cat-Eot/Accesoris/PurpleLock.png"
               alt="Locked"
             />
           </div>
@@ -282,7 +282,7 @@ function Game() {
             }`}
           >
             <img
-              src="./public/Cit-Cat-Eot/Accesoris/PurpleLock.webp"
+              src="../public/Cit-Cat-Eot/Accesoris/PurpleLock.png"
               alt="Locked"
             />
           </div>
