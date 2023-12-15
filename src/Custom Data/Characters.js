@@ -365,8 +365,8 @@ class Keqing extends Characters {
       solid: 'rgba(80, 71, 133, 1)',
     };
     this.voice = {
-      text: `おはよう、朝の状態は一日の良し悪しを左右するわ。だから眠くても元気出して起きるのよ！<br />
-      (Good morning! Your condition in the morning has an influence on how well the rest of the day goes. So even if you're sleepy, start the day with some energy!)`,
+      text: `おはよう、朝の状態は一日の良し悪しを左右するわ。だから眠くても元気出して起きるのよ！`,
+      textAlt: `(Good morning! Your condition in the morning has an influence on how well the rest of the day goes. So even if you're sleepy, start the day with some energy!)`,
       src: voicesRelative + 'Keqing.ogg',
       srcReal:
         'https://static.wikia.nocookie.net/gensin-impact/images/1/19/VO_JA_Keqing_Good_Morning.ogg/revision/latest?cb=20210526230751',
