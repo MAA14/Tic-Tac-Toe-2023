@@ -249,13 +249,16 @@ function Game() {
           onMouseOut={() => characterHover(false, true, index, player1)}
           disabled={disableCharacter}
         >
-          <span
+          <div
             className={`lock ${
               gameOver ? 'unlock' : char === player1 ? 'unlock' : 'locked'
             }`}
           >
-            <img src="PurpleLock.png" alt="Locked" />
-          </span>
+            <img
+              src="./public/Cit-Cat-Eot/Accesoris/PurpleLock.webp"
+              alt="Locked"
+            />
+          </div>
           <img className="overviewImage" src={char.url} alt={char.alt} />
         </button>
       </li>
@@ -273,13 +276,16 @@ function Game() {
           onMouseOut={() => characterHover(false, true, index, player2)}
           disabled={disableCharacter}
         >
-          <span
+          <div
             className={`lock ${
               gameOver ? 'unlock' : char === player2 ? 'unlock' : 'locked'
             }`}
           >
-            <img src="PurpleLock.png" alt="Locked" />
-          </span>
+            <img
+              src="./public/Cit-Cat-Eot/Accesoris/PurpleLock.webp"
+              alt="Locked"
+            />
+          </div>
           <img className="overviewImage" src={char.url} alt={char.alt} />
         </button>
       </li>
