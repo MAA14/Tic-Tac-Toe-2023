@@ -254,7 +254,7 @@ function Game() {
               gameOver ? 'unlock' : char === player1 ? 'unlock' : 'locked'
             }`}
           >
-            <img src="./PurpleLock.png" alt="Locked" />
+            <img src="PurpleLock.png" alt="Locked" />
           </span>
           <img className="overviewImage" src={char.url} alt={char.alt} />
         </button>
@@ -278,7 +278,7 @@ function Game() {
               gameOver ? 'unlock' : char === player2 ? 'unlock' : 'locked'
             }`}
           >
-            <img src="./PurpleLock.png" alt="Locked" />
+            <img src="PurpleLock.png" alt="Locked" />
           </span>
           <img className="overviewImage" src={char.url} alt={char.alt} />
         </button>
