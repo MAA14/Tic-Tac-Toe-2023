@@ -348,7 +348,11 @@ function Game() {
     setGamePoint(jumpHistory);
     winner = winnerHistory[index];
     setWinnerImg(winner);
-    setStatusText(`${winner.role} (${winner.name}) is the Winner`);
+    setStatusText(
+      `${winner.role === 'Player' ? 'Impossible!!! Player' : 'Enemy'} (${
+        winner.name
+      }) is the Winner`
+    );
   }
 
   let historyJSX = history.map((arr, index) => {

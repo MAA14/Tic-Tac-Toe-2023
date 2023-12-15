@@ -39,7 +39,7 @@ const BubbleText = forwardRef((props, ref) => {
           <p className="voiceActor">{voice.actor}</p>
         </span>
         <div className="textContainer bubbleContent">
-          <p>{voice.text}</p>
+          <p>{eval(voice.text)}</p>
         </div>
       </div>
       <p className="closeBubble">Press Empty Space to Close</p>
