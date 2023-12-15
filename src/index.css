@@ -305,7 +305,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   background-color: var(--black-2);
-  background-image: url('public/Cit-Cat-Eot/Accesoris/GhoticPattern3.jpg');
+  background-image: url('../public/Cit-Cat-Eot/Accesoris/GhoticPattern3.jpg');
   width: 90vw;
   margin-left: 5vw;
   margin-top: 5%;
