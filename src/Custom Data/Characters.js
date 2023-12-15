@@ -365,7 +365,9 @@ class Keqing extends Characters {
       solid: 'rgba(80, 71, 133, 1)',
     };
     this.voice = {
-      text: `おはよう、朝の状態は一日の良し悪しを左右するわ。だから眠くても元気出して起きるのよ！
+      text: `おはよう、朝の状態は一日の良し悪しを左右するわ。だから眠くても元気出して起きるのよ！${(
+        <br></br>
+      )}
       (Good morning! Your condition in the morning has an influence on how well the rest of the day goes. So even if you're sleepy, start the day with some energy!)`,
       src: voicesRelative + 'Keqing.ogg',
       srcReal:
