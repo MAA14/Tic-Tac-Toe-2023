@@ -353,6 +353,30 @@ $black-2: rgba(0, 0, 0, 1);
 $dark-slate-gray: rgba(49, 93, 107, 1);
  */
 
+class Keqing extends Characters {
+  constructor(name) {
+    super(name);
+    this.url = photoProfileRelativePath + 'PP_Keqing.jpg';
+    this.winningUrl = winningWEBP + 'WIN_Keqing.webp';
+    this.alt = 'Keqing (Genshin Impact)';
+    this.color = {
+      // blur: 'rgba(82, 158, 146, 0.46)',
+      blur: 'rgb(32 27 63 / 46%)',
+      solid: 'rgba(80, 71, 133, 1)',
+    };
+    this.voice = {
+      text: `おはよう、朝の状態は一日の良し悪しを左右するわ。だから眠くても元気出して起きるのよ！
+      (Good morning! Your condition in the morning has an influence on how well the rest of the day goes. So even if you're sleepy, start the day with some energy!)`,
+      src: voicesRelative + 'Keqing.ogg',
+      srcReal:
+        'https://static.wikia.nocookie.net/gensin-impact/images/1/19/VO_JA_Keqing_Good_Morning.ogg/revision/latest?cb=20210526230751',
+      actor: 'Eri Kitamura',
+    };
+  }
+}
+// $space-cadet: rgba(32, 27, 63, 1);
+// $ultra-violet: rgba(80, 71, 133, 1);
+
 class Sayu extends Characters {
   constructor(name) {
     super(name);
@@ -405,6 +429,7 @@ const genshinCharacters = [
   new Kokomi('Kokomi'),
   new Qiqi('Qiqi'),
   new Xiao('Xiao'),
+  new Keqing('Keqing'),
 ];
 
 const basicCharacters = [
