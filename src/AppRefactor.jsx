@@ -254,10 +254,7 @@ function Game() {
               gameOver ? 'unlock' : char === player1 ? 'unlock' : 'locked'
             }`}
           >
-            <img
-              src="../public/Cit-Cat-Eot/Accesoris/PurpleLock.png"
-              alt="Locked"
-            />
+            <img src="./Cit-Cat-Eot/Accesoris/PurpleLock.png" alt="Locked" />
           </div>
           <img className="overviewImage" src={char.url} alt={char.alt} />
         </button>
@@ -281,10 +278,7 @@ function Game() {
               gameOver ? 'unlock' : char === player2 ? 'unlock' : 'locked'
             }`}
           >
-            <img
-              src="../public/Cit-Cat-Eot/Accesoris/PurpleLock.png"
-              alt="Locked"
-            />
+            <img src="./Cit-Cat-Eot/Accesoris/PurpleLock.png" alt="Locked" />
           </div>
           <img className="overviewImage" src={char.url} alt={char.alt} />
         </button>
