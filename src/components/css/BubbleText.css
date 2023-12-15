@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Metal+Mania&family=Nosifer&family=Orbitron:wght@500&family=Pixelify+Sans&family=Roboto:wght@100;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Metal+Mania&family=Montserrat:wght@900&family=Nosifer&family=Orbitron:wght@500&family=Pixelify+Sans&family=Roboto:wght@100;400;700;900&display=swap');
+:root {
+  --fonts-Roboto: 'Roboto';
+  --fonts-Montserrat: 'Montserrat';
+  --color: rgba(66, 46, 48, 1);
+}
+
+.bubbleTextContainer {
+  position: absolute;
+  bottom: 10%;
+  width: 80vw;
+  height: 40%;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bubbleText {
+  width: max(60%, 300px);
+  height: max(30%, 300px);
+  background-color: var(--blur-color);
+  border: 3px solid var(--solid-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  /* Clip Path */
+  clip-path: polygon(0% 100%, 0% 15%, 5% 0%, 100% 0%, 100% 85%, 95% 100%);
+
+  cursor: default;
+}
+
+.bubbleText::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+  filter: blur(5px);
+  background-color: var(--blur-color);
+}
+
+.bubbleContent p {
+  opacity: 0;
+}
+
+/* Acs */
+.bubbleAcs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: max(45%, 200px);
+  height: 15%;
+  background-color: var(--solid-color);
+}
+
+.bubbleAcs h2 {
+  font-family: var(--fonts-Montserrat);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.titleName {
+  color: rgb(255, 255, 255);
+  left: 0%;
+  top: -1%;
+  clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 0%, 80% 100%);
+}
+
+.titleVoice {
+  bottom: -1%;
+  right: 0;
+  width: max(60%, 200px);
+  clip-path: polygon(0% 100%, 20% 0%, 100% 0%, 100% 0%, 100% 100%);
+}
+
+.closeBubble {
+  animation: kelapKelip 1s linear infinite;
+  margin-top: 10px;
+}
+
+.voiceIcon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.voiceIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.voiceActor {
+  font-family: 'Courier New', Courier, monospace;
+  margin-left: 5%;
+  padding-top: 5px;
+  font-weight: bolder;
+  font-size: 12px;
+}
+
+/* Show or Hide Class */
+/* Show */
+.bubbleTextContainer.bubbleShow .bubbleText {
+  animation: showUp 0.5s ease-in forwards;
+}
+
+.bubbleTextContainer.bubbleShow .bubbleContent p {
+  animation: textOpacityShow 0.5s 0.5s ease-in forwards;
+}
+
+/* Hide */
+.bubbleTextContainer.bubbleHide .bubbleText {
+  animation: showHide 0.5s 0.5s ease-in forwards;
+}
+
+.bubbleTextContainer.bubbleHide .bubbleContent p {
+  animation: textOpacityHide 0.5s ease-in forwards;
+}
+
+/* Keyframess */
+@keyframes kelapKelip {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes textOpacityShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes textOpacityHide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes showUp {
+  0% {
+    width: 0vw;
+  }
+  100% {
+    width: max(60%, 300px);
+  }
+}
+
+@keyframes showHide {
+  100% {
+    border: none;
+    width: 0vw;
+  }
+  0% {
+    width: max(60%, 300px);
+  }
+}
+
+@media (max-width: 430px) {
+  .titleName {
+    top: -1%;
+  }
+
+  .titleName h2 {
+    font-size: 13px;
+  }
+
+  .titleVoice {
+    bottom: -1%;
+  }
+
+  .titleVoice p {
+    font-size: 8px;
+  }
+
+  .textContainer.bubbleContent p {
+    font-size: 12px;
+  }
+}

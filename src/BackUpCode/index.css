@@ -1,0 +1,829 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Metal+Mania&family=Nosifer&family=Orbitron:wght@500&family=Pixelify+Sans&display=swap');
+:root {
+  --fonts-Gloock: 'nosifer';
+  --fonts-Metal-Mania: 'Metal Mania';
+  --fonts-Pixelify-Sans: 'Pixelify Sans';
+  --fonts-Orbitron: 'Orbitron';
+}
+
+/* BackUp Root */
+:root {
+  /* Ghotic Style */
+  --engineering-orange: #66225588;
+  --imperial-red: #66227799;
+  --red-cmyk: #77557777;
+  --bittersweet: #66002266;
+  --off-red-rgb: rgba(243, 9, 2, 1);
+  --black: rgba(10, 3, 6, 1);
+  --chocolate-cosmos: #00000055;
+  --black-2: rgba(9, 4, 18, 1);
+
+  /* Shadow Garden RGB */
+  --engineering-orange: rgba(186, 0, 0, 1);
+  --imperial-red: rgb(255, 113, 110);
+  --red-cmyk: rgb(255, 112, 107);
+  --bittersweet: rgba(254, 79, 77, 1);
+  --off-red-rgb: rgba(243, 9, 2, 1);
+  --black: rgba(10, 3, 6, 1);
+  --chocolate-cosmos: rgba(65, 11, 24, 1);
+  --black-2: rgba(9, 4, 18, 1);
+
+  /* Color Acs */
+  --green-light-blue: #5ddcff;
+  --shadow-purple-light: #3c67e3;
+  --solid-purple-half-dark: #4e00c2;
+
+  /* Apps Component Color */
+  --square-rotating-color-1: var(--green-light-blue);
+  --square-rotating-color-2: var(--shadow-purple-light);
+  --square-rotating-color-3: var(--solid-purple-half-dark);
+
+  --square-rotating-color-1-disabled: var(--imperial-red);
+  --square-rotating-color-2-disabled: var(--chocolate-cosmos);
+  --square-rotating-color-3-disabled: var(--bittersweet);
+
+  --box-shadow-1: var(--green-light-blue);
+  --box-shadow-2: var(--solid-purple-half-dark);
+
+  --history-title-text: var(--green-light-blue);
+  --container-background: #212121;
+
+  --not-unique-text-color: white;
+}
+
+@property --rotate {
+  syntax: '<angle>';
+  initial-value: 132deg;
+  inherits: false;
+}
+
+:root {
+  --card-height: 100px;
+  --card-width: 100px;
+}
+
+body {
+  width: min(100vw);
+  height: min(100vh);
+  color: var(--not-unique-text-color);
+  background-color: var(--black-2);
+  /* background-image: url(../public/Cit-Cat-Eot/ImageBackground/BackgroundContainer.webp); */
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--fonts-Metal-Mania);
+}
+
+/* Game Container For All (Outer Container for Game */
+.bodyContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--not-unique-text-color);
+  position: relative;
+}
+
+/* Game Container */
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 350px;
+  height: min(100vh);
+  position: relative;
+  z-index: 99;
+}
+
+/* Board ---------------------------------------------------------------------- */
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 304px;
+  height: 304px;
+  position: absolute;
+  top: 25%;
+}
+
+/* Status text */
+.statusText {
+  position: absolute;
+  top: calc(25% - 40px);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Square set up */
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: var(--container-background);
+  border: 2px solid transparent;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Animation Border */
+.square.gameStart::before {
+  content: '';
+  width: 102px;
+  height: 102px;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    var(--rotate),
+    var(--square-rotating-color-1),
+    var(--square-rotating-color-2) 43%,
+    var(--square-rotating-color-3)
+  );
+  position: absolute;
+  z-index: -1;
+  top: -2px;
+  left: -3px;
+  animation: spin 2.5s linear infinite;
+}
+
+.square.gameOver::before {
+  content: '';
+  width: 102px;
+  height: 102px;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    var(--rotate),
+    var(--square-rotating-color-1-disabled),
+    var(--square-rotating-color-2-disabled) 43%,
+    var(--square-rotating-color-3-disabled)
+  );
+  position: absolute;
+  z-index: -1;
+  top: -2px;
+  left: -3px;
+  animation: spin 2.5s linear infinite;
+}
+
+.square.gameStart::after {
+  position: absolute;
+  content: '';
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate),
+    var(--square-rotating-color-1),
+    var(--square-rotating-color-2) 43%,
+    var(--square-rotating-color-3)
+  );
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
+}
+
+.square.gameOver::after {
+  position: absolute;
+  content: '';
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate),
+    var(--imperial-red),
+    var(--chocolate-cosmos) 43%,
+    var(--bittersweet)
+  );
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+.square img {
+  background-color: #212121;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.square.squareDisabled::before {
+  background-image: linear-gradient(
+    var(--rotate),
+    var(--imperial-red),
+    var(--chocolate-cosmos) 43%,
+    var(--bittersweet)
+  );
+}
+
+.square.squareDisabled::after {
+  background-image: linear-gradient(
+    var(--rotate),
+    var(--imperial-red),
+    var(--chocolate-cosmos) 43%,
+    var(--bittersweet)
+  );
+}
+
+/* History Feature */
+.historyContainer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--black-2);
+  width: 90vw;
+  margin-left: 5vw;
+  margin-top: 5%;
+  min-height: 30vh;
+  border-radius: 20px;
+  padding: max(2%, 20px);
+  color: var(--history-title-text);
+}
+
+.historyContainer::after {
+  position: absolute;
+  content: '';
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(1);
+  filter: blur(calc(var(--card-height) / 5));
+  background-image: linear-gradient(
+    var(--rotate),
+    var(--square-rotating-color-1),
+    var(--square-rotating-color-2) 43%,
+    var(--square-rotating-color-3)
+  );
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
+}
+
+.historyContainer ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+}
+
+.historyContainer ul li {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.historyListContainer {
+  overflow: hidden;
+  border: 2px solid var(--box-shadow-2);
+  box-shadow: 1px 1px 10px var(--box-shadow-1);
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: box-shadow 0.5s;
+}
+
+.historyListContainer:hover {
+  box-shadow: 1px 1px 5px 2px var(--box-shadow-2);
+}
+
+.historyListContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Player Picker */
+.playerPickerContainer {
+  height: 100vh;
+  width: calc((100vw - 350px) / 2);
+  position: absolute;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Player 1 */
+.player1 {
+  top: 0;
+  left: 0;
+}
+
+/* Player 2 */
+.player2 {
+  top: 0;
+  right: 0;
+}
+
+/* List Container */
+.charactersListContainer {
+  width: 90%;
+  height: min(60%);
+  margin-top: 20px;
+  background-color: var(--container-background);
+  overflow-x: hidden;
+  border-radius: 10px;
+}
+
+.overviewList {
+  width: 100%;
+  height: auto;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.overviewList li {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.characterOverview {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #212121;
+  border: 4px solid #4e00c2;
+  cursor: pointer;
+}
+
+.characterOverview img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  object-fit: cover;
+}
+
+/* Game Condition Status List Character */
+.charactersListContainer.charDisabled {
+  box-shadow: 0px 15px 30px var(--red-cmyk);
+}
+
+.charactersListContainer.charNotDisabled {
+  box-shadow: 0px 15px 30px #3c67e3;
+}
+
+.overviewList li.active .characterOverview {
+  border-color: #5ddcff;
+}
+
+.overviewList li.active .characterOverview img {
+  opacity: 1;
+}
+
+.characterOverview.charNotDisabled:hover img {
+  opacity: 1;
+}
+
+.characterOverview.charDisabled {
+  border-color: var(--engineering-orange);
+  cursor: default;
+}
+
+.characterOverview.charDisabled:hover img {
+  opacity: 0.2;
+}
+
+.characterOverview.charNotDisabled:hover {
+  border-color: #5ddcff;
+}
+
+.characterOverview.charDisabled:hover {
+  border-color: var(--engineering-orange);
+}
+
+/* Button Start --------------------------------------------------- */
+.buttonStart {
+  width: 70%;
+  height: 65px;
+  position: absolute;
+  bottom: calc(10% + 20px);
+  left: 50px;
+  animation: spin 2.5s linear infinite;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-image 1s 0.5s ease-in, background-color 1s 0.5s ease-in;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.buttonStart.gameOver {
+  background-image: linear-gradient(
+    var(--rotate),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+}
+
+.buttonStart.gameStart {
+  background-image: linear-gradient(
+    var(--rotate),
+    var(--imperial-red),
+    var(--chocolate-cosmos) 43%,
+    var(--bittersweet)
+  );
+}
+
+.buttonStart button {
+  width: calc(100% - 8px);
+  height: calc(100% - 6px);
+  outline: none;
+  border: none;
+  background-color: #212121;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  z-index: 1;
+  font-size: 30px;
+  font-family: var(--fonts-Gloock);
+  color: var(--not-unique-text-color);
+  cursor: pointer;
+  transition: color 1s ease-in-out;
+}
+
+.buttonStart.gameOver:hover {
+  background-image: none;
+  background-color: #5ddcff;
+}
+
+.buttonStart.gameOver:hover button {
+  color: #5ddcff;
+}
+
+.buttonStart.gameStart:hover {
+  background-image: none;
+  background-color: var(--imperial-red);
+}
+
+.buttonStart.gameStart:hover button {
+  color: var(--imperial-red);
+}
+
+/* Back Button */
+.backButton {
+  display: none;
+}
+
+.mobilePlayerPickerContainer {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* ---------------------------------- POP UP */
+.popUpContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(14, 9, 9, 0.5);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.popUp {
+  width: max(60vw, 300px);
+  height: max(30vw, 200px);
+  background-image: linear-gradient(
+    var(--rotate),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+  animation: spin 2.5s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  /* Clip Path */
+  clip-path: polygon(0% 100%, 0% 10%, 5% 0%, 100% 0%, 100% 90%, 95% 100%);
+
+  cursor: default;
+}
+
+.popUp::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4x;
+
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  clip-path: polygon(0% 100%, 0% 10%, 5% 0%, 100% 0%, 100% 90%, 95% 100%);
+  background-color: #212121;
+  z-index: 101;
+}
+
+.textContainer {
+  width: 90%;
+  height: 80%;
+  position: relative;
+  z-index: 102;
+}
+
+.textContainer h1 {
+  color: var(--bittersweet);
+  font-family: var(--fonts-Orbitron);
+  font-size: 15px;
+  margin-left: 5%;
+}
+
+.textContainer p {
+  font-family: monospace;
+  font-size: min(1.3vw, 15px);
+  text-align: center;
+  margin-top: 5%;
+}
+
+.textContainer .quoteser {
+  font-family: var(--fonts-Metal-Mania);
+  font-size: 20px;
+}
+
+.closePopUp {
+  position: absolute;
+  bottom: 50px;
+}
+
+.popUpAcs {
+  position: absolute;
+  background-color: #4e00c2;
+  width: 20%;
+  height: 40%;
+  z-index: 102;
+
+  clip-path: polygon(
+    0% 100%,
+    0% 0%,
+    10% 10%,
+    10% 70%,
+    30% 90%,
+    90% 90%,
+    100% 100%
+  );
+}
+
+.bottom {
+  bottom: 4px;
+  left: 4px;
+  animation: backgroundColorChange 2.5s 2s linear infinite;
+}
+
+.top {
+  top: 4px;
+  right: 4px;
+  rotate: 180deg;
+  animation: backgroundColorChange 2.5s 0.5s linear infinite;
+}
+
+@keyframes backgroundColorChange {
+  0% {
+    background-color: #4e00c2;
+  }
+
+  50% {
+    background-color: #5ddcff;
+  }
+
+  100% {
+    background-color: #3c67e3;
+  }
+}
+
+/* Features ---------------------------------------------------------- */
+
+.featuresContainer {
+  position: absolute;
+  top: 3%;
+  left: 0;
+  width: 100vw;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  z-index: 103;
+}
+
+.features-on-top {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.circle-icon {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #3c67e3;
+}
+
+.features-on-top img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.changeMusicController {
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: filter 0.5s ease;
+}
+
+.changeMusicController:hover {
+  filter: drop-shadow(2px 2px 15px #5ddcff);
+}
+
+.changeMusicController img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#backMusic {
+  transform: rotate(90deg);
+}
+
+#nextMusic {
+  transform: rotate(270deg);
+}
+
+/* Features by React */
+.featuresContainerByReact {
+  position: absolute;
+  z-index: 104;
+  top: 0;
+  left: 1%;
+  width: auto;
+  height: 65px;
+  display: flex;
+}
+
+/* When Error */
+.popUpContainer.error {
+  display: flex;
+}
+
+.popUpContainer.noError {
+  display: none;
+}
+
+/* --------------------------------------- Tablet */
+@media (min-height: 1000px) and (max-height: 1285px) {
+  .buttonStart {
+    bottom: 35vh;
+  }
+}
+
+/* ------------------------------------= Mobile Device Responsive*/
+@media (max-width: 430px) {
+  .historyContainer {
+    margin-top: 10%;
+  }
+
+  /* Pop Up */
+  .textContainer h1 {
+    font-size: 12px;
+  }
+
+  .textContainer p {
+    font-size: 8px;
+    margin-top: 5%;
+  }
+
+  .textContainer .quoteser {
+    font-size: 15px;
+  }
+
+  .closePopUp {
+    position: absolute;
+    bottom: 25%;
+  }
+
+  .playerPickerContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1;
+    transition: all 1s linear;
+  }
+
+  /* This is Container to show status Player Picking */
+  .mobilePlayerPickerContainer {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .backButton {
+    display: flex;
+    width: 70%;
+    height: 65px;
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+  }
+
+  /* Selecting Player from Player 1, none and flex toggling */
+  /* Buat transisi ke kiri ke kanan */
+  .playerPickerContainer.player2.player1NonSelected {
+    display: flex;
+    left: 100%;
+  }
+
+  .playerPickerContainer.player2.player1Selected {
+    display: flex;
+    left: 0%;
+  }
+
+  .playerPickerContainer.player1.player1NonSelected {
+    display: flex;
+    left: 0;
+  }
+
+  .playerPickerContainer.player1.player1Selected {
+    display: flex;
+    left: -100%;
+  }
+
+  /* Kalo semua player dh dipilih display none semua */
+  .playerPickerContainer.player2.player1Selected.player2Selected {
+    display: none;
+  }
+
+  .playerPickerContainer.player1.player1Selected.player2Selected {
+    display: none;
+  }
+
+  .backButton.player2Selected {
+    display: none;
+  }
+
+  #backToLobbyButton {
+    display: none;
+  }
+
+  #backToLobbyButton button {
+    font-size: 15px;
+  }
+
+  #backToLobbyButton.player2Selected {
+    display: flex;
+    bottom: 0px;
+    z-index: 99;
+  }
+
+  /* When Selecting Player don't show the Board */
+  .gameContainer.gameNotReady {
+    display: none;
+  }
+
+  .gameContainer.gameReady {
+    display: flex;
+  }
+}
