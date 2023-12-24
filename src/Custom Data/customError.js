@@ -19,8 +19,8 @@ class PlayerError extends PopUpError {
     super();
     this.name = 'THERE IS A PLAYER WHO HAS NO CHARACTER';
     this.message =
-      'Terkadang pertemuan itu bukan untuk bersama melainkan pelajaran untuk kita, bahwa pernah ada cerita singkat namun melekat yang membuat diri terjebak pada rasa nyaman tapi terbatas sebagai teman. Mungkin kamu sendirian sambil menunggu seseorang pulang karena ia pernah singgah dan memberikan momen yang indah namun apalah rasa sebuah momen tanpa komitmen seperti menikmati pahitnya kopi. Ya dari pada Nice try buat dapetin dia, mending Nice Game menangin Tic-Tac-Toe nya yuk pilih Characternya.';
-    this.quoteser = 'usee';
+      'Mengunci Hati yang sepi namun berharap ada yang mengisi itu seperti ingin makan Nasi tanpa menanam Padi, mustahil kan? Sama seperti permainan ini yang tidak berfungsi jika ada Player yang belum terisi.';
+    this.quoteser = 'MAA';
   }
 }
 
@@ -29,7 +29,7 @@ class GameError extends PopUpError {
     super();
     this.name = "CAN'T START NEW GAME BEFORE FINISH THE GAME";
     this.message =
-      'Ada sebuah hubungan yang dimulai namun tak pernah selesai, kala itu dimulai berawal dari saling sapa hingga bercerita, seakan terlihat seperti hubungan yang sempurna namun meninggalkan luka, karena ada yang mulai jatuh hati tapi ada yang menganggapnya hanya sekedar untuk menghibur diri. Selesaikan apa yang sudah kamu mulai, permainan ini bukan seperti hubungan antara kamu dan dia yang tak pernah berakhir dengan pasti.';
+      'Apa gunanya sebuah Hubungan jika salah satunya diabaikan? Apa gunanya permainan jika tidak pernah diselesaikan?';
     this.quoteser = 'MAA';
   }
 }
@@ -39,7 +39,7 @@ class DoublePlayerError extends PopUpError {
     super();
     this.name = "PLAYER 1 AND PLAYER 2 CAN'T BE THE SAME CHARACTER";
     this.message =
-      'Tetap mencintai dia yang sudah dimiliki oleh orang lain adalah seni menyakiti diri. Setia pada satu hati merupakan hal yang terpuji, tapi memahami bahwa bukan kamu yang di-ingini itu sadar diri. Ingatlah, setia dan memaksa itu dua hal yang berbeda. Dunia itu layaknya sebuah permainan jika kamu memaksa untuk mendapatkan hal yang sudah jelas tak bisa maka kamu takkan pernah bisa menikmati dunia, ayok nikmati permainannya dengan pilih Character lain.';
+      'Terjebak pada masa lalu tidak akan membuat Dia kembali menjadi milikmu. Ayo pilih Character baru!!! Karena Dia juga udah punya yang baru.';
     this.quoteser = 'MAA';
   }
 }
@@ -49,7 +49,7 @@ class HistoryError extends PopUpError {
     super();
     this.name = "CAN'T SEE HISTORY WHILE GAME STARTING";
     this.message =
-      'Waktu terus berlalu dan masa lalu-mu sudah punya yang baru, ayok tentukan langkah barumu jangan terpaku pada masa lalu tunjukkan pada dunia bahwa kamu bisa melangkah tanpanya.';
+      'Waktu terus berlalu dan masa lalu-mu sudah punya yang baru, ayok tentukan langkah barumu jangan terpaku pada masa lalu karena dia bukan lagi urusanmu.';
     this.quoteser = 'MAA';
   }
 }
