@@ -445,9 +445,7 @@ const basicCharacters = [
 
 // Create all Characters | tidur bang
 const allCharacters = [
-  ...genshinCharacters,
-  new Sayu('Sayu'),
-  new FakhriDAce('Fakhri D Ace'),
+  ...genshinCharacters
 ];
 
 const nonePlayer1 = new NullCharacter1();
